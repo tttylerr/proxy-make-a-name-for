@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prox</title>
+</head>
+<body>
+    <input type="url" id="url" placeholder="enter the url to use">
+    <input id="subm" type="button" value="submit">
+    <script>
+
+        document.getElementById('subm').addEventListener('click', function(){
+            let url = document.getElementById('url').innerText
+            console.log(url)
+            let req = new XMLHttpRequest()
+            req.open('GET', `/prox-hidden?url=${url.toString()}`)
+            req.send() 
+            console.log(req.response)
+        })
+    </script>
+</body>
+</html>
