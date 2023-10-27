@@ -8,10 +8,11 @@
 <body>
     <input type="url" id="url" placeholder="enter the url to use">
     <input id="subm" type="button" value="submit">
+    <a href='/eaglecraft-notice'> eaglecraft </a>
     <script>
 
         document.getElementById('subm').addEventListener('click', function(){
-            let url = document.getElementById('url').innerText
+            let url = document.getElementById('url').value
             console.log(url)
             let req = new XMLHttpRequest()
             req.open('GET', `/prox-hidden?url=${url.toString()}`)

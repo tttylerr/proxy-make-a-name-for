@@ -2,7 +2,8 @@ const express = require('express');
 const res = require('express/lib/response');
 const app = express()
 const path = require('path')
-var XMLHttpRequest = require('xhr2')
+var axios = require('axios')
+const jsonc = require('jsonc')
 
 app.get('/', (req,res) => {
     res.sendFile(path.resolve('./pages/coverup.html'))
@@ -14,8 +15,20 @@ app.get('/hidden', (req,res) => {
 
 app.get('/prox-hidden', (req,res) => {
     console.log('a')
-    let url = req.query.url
-    let xml = new XMLHttpRequest()
+    const url = req.query.url
+    console.log(url)
+    axios.get(url)
+    .then(response => {
+        console.log(response.data);
+        res.render(response.data)
+      })
+    .catch(error => (resp => {
+        console.log(resp)
+    }))
+
+    /*
+    DEPRACATED (Doesn't work either lol)
+    let xml = new XMLHttpRequest()s
     xml.addEventListener('load', () => {
         window.alert('url is loading')
     });
@@ -25,6 +38,15 @@ app.get('/prox-hidden', (req,res) => {
         console.log(xml.response)
     }
     xml.send()
+    */
+})
+
+app.get('/eaglecraft-notice', (req,res) => {
+    res.sendFile(path.resolve('util/other/games/eaglercraft/e.html'))
+})
+
+app.get('/play-na1-ecraft', (req,res) => {
+    res.sendFile(path.resolve('util/other/games/eaglercraft/eaglercraft.1.5.2.html'))
 })
 
 app.listen(3000, () => {
