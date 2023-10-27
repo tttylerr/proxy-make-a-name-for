@@ -42,11 +42,12 @@ app.get('/prox-hidden', (req,res) => {
 })
 
 app.get('/eaglecraft-notice', (req,res) => {
+    
     res.sendFile(path.resolve('util/other/games/eaglercraft/e.html'))
 })
 
 app.get('/play-na1-ecraft', (req,res) => {
-    res.sendFile(path.resolve('util/other/games/eaglercraft/eaglercraft.1.5.2.html'))
+    res.sendFile('./util/other/games/eaglercraft/game.html')
 })
 
 app.listen(3000, () => {
