@@ -47,7 +47,7 @@ app.get('/eaglecraft-notice', (req,res) => {
 })
 
 app.get('/play-na1-ecraft', (req,res) => {
-    res.sendFile(path.join(__dirname + '/util/other/games/eaglercraft/game.html'))
+    res.sendFile(path.join(__dirname + '/util/other/games/eaglercraft/ecraft.html'))
 })
 
 app.listen(3000, () => {
